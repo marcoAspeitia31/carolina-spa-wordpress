@@ -26,7 +26,7 @@ if ( ! function_exists( 'carolinaspa_theme_setup' ) ) :
          */
         register_nav_menus( array(
             'primary'   => __( 'Primary Menu', 'carolinaspa' ),
-            'secondary' => __('Secondary Menu', 'carolinaspa' )
+            'social_media' => __('Social Media Menu', 'carolinaspa' )
         ) );
      
         /**
