@@ -37,3 +37,20 @@ if ( ! function_exists( 'carolinaspa_theme_setup' ) ) :
     }
 endif; // carolinaspa_theme_setup
 add_action( 'after_setup_theme', 'carolinaspa_theme_setup' );
+
+/**
+ * Proper way to enqueue scripts and styles
+ */
+function carolinaspa_theme_scripts() {
+    /* Styles */
+    wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', false, '4.5.0');
+    wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', false, '4.7.0');
+    wp_enqueue_style('style', get_stylesheet_uri(), array('bootstrap-css','font-awesome') );
+
+    /* Scripts */
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('popper', get_template_directory_uri() . '/js/popper.min.js', array('jquery'), '2.4.0', true);
+    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('popper'), '4.5.3', true);
+    wp_enqueue_script('scripts', get_template_directory_uri() . '/js/scripts.js', array(''), '1.0', true);
+}
+add_action( 'wp_enqueue_scripts', 'carolinaspa_theme_scripts' );
