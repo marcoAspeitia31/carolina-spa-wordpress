@@ -40,25 +40,15 @@
             </button>
             <a class="navbar-brand text-light d-lg-none" href="#">Carolina SPA</a>
             <div class="container">
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="nav nav-justified flex-sm-row flex-column w-100">
-                        <li class="nav-item <?php echo 'index' === $activePage ? 'active' : '' ?>">
-                            <a href="index.php" class="nav-link">Inicio</a>
-                        </li>
-                        <li class="nav-item <?php echo 'nosotros' === $activePage ? 'active' : '' ?>">
-                            <a href="nosotros.php" class="nav-link">Nosotros</a>
-                        </li>
-                        <li class="nav-item <?php echo 'servicios' === $activePage ? 'active' : '' ?>">
-                            <a href="servicios.php" class="nav-link">Servicios</a>
-                        </li>
-                        <li class="nav-item <?php echo 'productos' === $activePage ? 'active' : '' ?>">
-                            <a href="productos.php" class="nav-link">Productos</a>
-                        </li>
-                        <li class="nav-item <?php echo 'contacto' === $activePage ? 'active' : '' ?>">
-                            <a href="contacto.php" class="nav-link">Contacto</a>
-                        </li>
-                    </ul>
-                </div><!-- navbar-collapse end -->
+                <?php
+                    $args = array(
+                        'menu_class'        => 'nav nav-justified flex-sm-row flex-column w-100',
+                        'container_class'   => 'collapse navbar-collapse',
+                        'container_id'      => 'navbarNav',
+                        'theme_location'    => 'primary',
+                    );
+                    wp_nav_menu($args);
+                ?>
             </div><!-- container end -->
         </nav><!-- navbar end -->
     </div><!-- navigation end -->
