@@ -18,34 +18,17 @@
             </a>
         </div>
         <div class="col-lg-4 text-center text-lg-right">
-            <nav class="social-icons">
-                <ul class="">
-                    <li>
-                        <a href="https://facebook.com">
-                            <span class="sr-only">Facebook </span>
-                        </a>
-                    </li>
-                    <li><a href="https://instagram.com">
-                            <span class="sr-only">Instagram </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com">
-                            <span class="sr-only">Twitter </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://pinterest.com">
-                            <span class="sr-only">Pinterest </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://youtube.com">
-                            <span class="sr-only">YouTube </span>
-                        </a>
-                    </li>
-                </ul>
-            </nav><!-- social-icons end -->
+            <?php
+                $args = array(
+                    'container'         => 'nav',
+                    'container_class'   => 'social-icons',
+                    'link_before'       => '<span class="sr-only">',
+                    'link_after'        => '</span>',
+                    'theme_location'    => 'social_media',
+                );
+                wp_nav_menu($args);
+            ?>
+            <!-- social-icons end -->
         </div><!-- col-lg-4 social icons -->
     </div><!-- top bar end -->
     <div class="navigation mt-3 py-2">
