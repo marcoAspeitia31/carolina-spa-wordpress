@@ -12,8 +12,9 @@
 <header class="container-fluid website-header">
     <div class="row justify-content-md-between align-items-center">
         <div class="col-lg-4">
-            <a href="index.php">
-                <img src="img/logo.svg" alt="carolina spa" class="img-fluid mx-auto d-block py-4">
+            <a href="<?php echo esc_url(home_url('/')) ;?>">
+                <img src="<?php echo get_template_directory_uri();?>/img/logo.svg" alt="carolina spa"
+                    class="img-fluid mx-auto d-block py-4">
             </a>
         </div>
         <div class="col-lg-4 text-center text-lg-right">
