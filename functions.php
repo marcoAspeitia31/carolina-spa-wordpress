@@ -70,7 +70,7 @@ function carolinaspa_li_class($classes, $item, $args){
 }
 add_filter('nav_menu_css_class','carolinaspa_li_class', 1, 3);
 
-/* 
+/**  
  * Set bootstrap class nav-link to <a> of the primary menu,
  * you can find the name of the menu in register_nav_menus() located 
  * in add_action('after_setup_theme',$theme_name_function)
@@ -83,3 +83,22 @@ function carolinaspa_a_class($atts, $item, $args){
     return $atts;
 }
 add_filter('nav_menu_link_attributes','carolinaspa_a_class', 10, 3);
+
+/** Widgets Zone
+ *  
+ * In this section we are going to setup the widgets support to our theme
+ * more info in -> https://developer.wordpress.org/reference/hooks/widgets_init/ * 
+ * 
+ */
+function carolinaspa_widgets_init() {
+    register_sidebar( array(
+        'name'          => __( 'Footer Widget 1', 'carolinaspa' ),
+        'id'            => 'carolinaspa-footer-widget-1',
+        'description'   => __( 'Aquí podrás ingresar información general de la empresa, bien puede ser una dirección o hablar acerca de la empresa, por ejemplo', 'carolinaspa' ),
+        'before_widget' => '<div id="%1$s">', /* This line is created to wrap widgets with a singular and dinamyc id */
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="text-uppercase text-center pb-4">',
+        'after_title'   => '</h3>',
+    ) );
+}
+add_action( 'widgets_init', 'carolinaspa_widgets_init' );

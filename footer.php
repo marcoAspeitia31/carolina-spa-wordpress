@@ -2,10 +2,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
+                <?php
+                if(is_active_sidebar('carolinaspa-footer-widget-1')){
+                    dynamic_sidebar('carolinaspa-footer-widget-1');
+                }else{
+                ?>
                 <h3 class="text-uppercase text-center pb-4">Nosotros</h3>
                 <p class="text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum mollitia
                     quae consequatur explicabo adipisci fugiat possimus eligendi id, recusandae, reprehenderit eius
                     beatae quibusdam ut facilis delectus nihil ipsa error aut.</p>
+                <?php
+                }
+            ?>
             </div>
             <div class="col-md-4 text-center">
                 <h3 class="text-uppercase pb-4">Horario</h3>
