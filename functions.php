@@ -52,7 +52,7 @@ function carolinaspa_theme_scripts() {
     wp_enqueue_script('jquery');
     wp_enqueue_script('popper', get_template_directory_uri() . '/js/popper.min.js', array('jquery'), '2.4.0', true);
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('popper'), '4.5.3', true);
-    wp_enqueue_script('scripts', get_template_directory_uri() . '/js/scripts.js', array(''), '1.0', true);
+    wp_enqueue_script('scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0', true);
 }
 add_action( 'wp_enqueue_scripts', 'carolinaspa_theme_scripts' );
 
@@ -87,13 +87,31 @@ add_filter('nav_menu_link_attributes','carolinaspa_a_class', 10, 3);
 /** Widgets Zone
  *  
  * In this section we are going to setup the widgets support to our theme
- * more info in -> https://developer.wordpress.org/reference/hooks/widgets_init/ * 
+ * more info in -> https://developer.wordpress.org/reference/hooks/widgets_init/ 
  * 
  */
 function carolinaspa_widgets_init() {
     register_sidebar( array(
         'name'          => __( 'Footer Widget 1', 'carolinaspa' ),
         'id'            => 'carolinaspa-footer-widget-1',
+        'description'   => __( 'Aquí podrás ingresar información general de la empresa, bien puede ser una dirección o hablar acerca de la empresa, por ejemplo', 'carolinaspa' ),
+        'before_widget' => '<div id="%1$s">', /* This line is created to wrap widgets with a singular and dinamyc id */
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="text-uppercase text-center pb-4">',
+        'after_title'   => '</h3>',
+    ) );
+    register_sidebar( array(
+        'name'          => __( 'Footer Widget 2', 'carolinaspa' ),
+        'id'            => 'carolinaspa-footer-widget-2',
+        'description'   => __( 'Aquí podrás ingresar información general de la empresa, bien puede ser una dirección o hablar acerca de la empresa, por ejemplo', 'carolinaspa' ),
+        'before_widget' => '<div id="%1$s">', /* This line is created to wrap widgets with a singular and dinamyc id */
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="text-uppercase text-center pb-4">',
+        'after_title'   => '</h3>',
+    ) );
+    register_sidebar( array(
+        'name'          => __( 'Footer Widget 3', 'carolinaspa' ),
+        'id'            => 'carolinaspa-footer-widget-3',
         'description'   => __( 'Aquí podrás ingresar información general de la empresa, bien puede ser una dirección o hablar acerca de la empresa, por ejemplo', 'carolinaspa' ),
         'before_widget' => '<div id="%1$s">', /* This line is created to wrap widgets with a singular and dinamyc id */
         'after_widget'  => '</div>',
