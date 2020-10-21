@@ -48,10 +48,10 @@ add_action( 'after_setup_theme', 'carolinaspa_theme_setup' );
  */
 function carolinaspa_theme_scripts() {
     /* Styles */
-    wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', false, '4.5.0');
-    wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', false, '4.7.0');
-    wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Italianno&family=Lato:wght@400;700;900&family=Raleway:wght@400;700;900&display=swap', array(), '1.0' );
-    wp_enqueue_style('style', get_stylesheet_uri(), array('bootstrap-css','font-awesome') );
+    wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '4.7.0');
+    wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '4.5.0');
+    wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Italianno&display=swap', array(), '1.0.0' );
+    wp_enqueue_style('style', get_stylesheet_uri(), array('bootstrap-css', 'google-fonts'), '1.0.0');
 
     /* Scripts */
     wp_enqueue_script('jquery');
