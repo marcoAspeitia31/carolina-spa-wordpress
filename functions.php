@@ -20,6 +20,11 @@ if ( ! function_exists( 'carolinaspa_theme_setup' ) ) :
          * Enable support for post thumbnails and featured images.
          */
         add_theme_support( 'post-thumbnails' );
+
+        /**
+         * Enable SEO support
+        */
+        add_theme_support('title-tag');
      
         /**
          * Add support for two custom navigation menus.
