@@ -31,61 +31,48 @@ if ( have_posts() ) :
                 instalaciones
             </h2>
             <div class="row justify-content-center">
+                <?php 
+                    /** Consulting Gallery Custom Field
+                     * 
+                     * get_field() is a custom function of ACF
+                     * for more information please visit -> https://www.advancedcustomfields.com/resources/get_field/
+                     * 
+                     * preg_match() is a PHP function that returns whether a match was found in a string.
+                     * for more info please visit -> https://www.w3schools.com/php/func_regex_preg_match.asp
+                     * 
+                     * explode() Break a string into an array
+                     * more info, please visit -> https://www.w3schools.com/php/func_string_explode.asp
+                     * 
+                     **/
+                    $gallery = get_field('galeria', $post, false);
+                    preg_match('/\[gallery.*ids=.(.*).\]/',$gallery,$ids);
+                    $imagesIds = explode(",", $ids[1]);
+
+                    foreach($imagesIds as $singleImageId):
+                ?>
                 <div class="col-md-6 col-lg-4 mb-3">
-                    <a href="#" data-target="#image-1" data-toggle="modal">
-                        <img src="img/galeria_mini_01.jpg" alt="" class="img-fluid">
+                    <a href="#" data-target="#image-<?php echo $singleImageId?>" data-toggle="modal">
+                        <!-- wp_get_attachment_image() get an HTML img element representing an image attachment
+                         For more information please visit -> https://developer.wordpress.org/reference/functions/wp_get_attachment_image/
+                        -->
+                        <?php echo wp_get_attachment_image($singleImageId, 'medium', false, ['class' => 'img-fluid', 'srcset' => ' ']); ?>
                     </a>
                 </div>
-                <div class="col-md-6 col-lg-4 mb-3">
-                    <a href="#" data-target="#image-2" data-toggle="modal">
-                        <img src="img/galeria_mini_02.jpg" alt="" class="img-fluid">
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-3">
-                    <a href="#" data-target="#image-3" data-toggle="modal">
-                        <img src="img/galeria_mini_03.jpg" alt="" class="img-fluid">
-                    </a>
-                </div>
-                <div class="modal fade" id="image-1" tabindex="-1" role="dialog" aria-labelledby="Imagen 1"
-                    aria-hidden="true">
+                <div class="modal fade" id="image-<?php echo $singleImageId?>" tabindex="-1" role="dialog"
+                    aria-labelledby="Imagen <?php echo $singleImageId?>" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-body">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <img src="img/galeria_grande_01.jpg" alt="" class="img-fluid">
+                                <?php echo wp_get_attachment_image($singleImageId, 'full', false, ["class" => "img-fluid"]); ?>
                             </div>
                         </div><!-- modal-content end -->
                     </div><!-- modal-dialog end -->
                 </div><!-- repeatable modal -->
-                <div class="modal fade" id="image-2" tabindex="-1" role="dialog" aria-labelledby="Imagen 2"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <img src="img/galeria_grande_02.jpg" alt="" class="img-fluid">
-                            </div>
-                        </div><!-- modal-content end -->
-                    </div><!-- modal-dialog end -->
-                </div><!-- repeatable modal -->
-                <div class="modal fade" id="image-3" tabindex="-1" role="dialog" aria-labelledby="Imagen 3"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <img src="img/galeria_grande_03.jpg" alt="" class="img-fluid">
-                            </div>
-                        </div><!-- modal-content end -->
-                    </div><!-- modal-dialog end -->
-                </div><!-- repeatable modal -->
-            </div>
+                <?php endforeach; ?>
+            </div><!-- gallery end -->
         </main>
         <!-- SIDEBAR SCHEDULES-->
         <aside class="col-lg-4 pt-4 pt-lg-0 text-light align-self-start">
