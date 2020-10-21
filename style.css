@@ -84,7 +84,8 @@ body{
     color: #ffffff;
 }
 .main-nav{
-    background-image: url(../img/border_horizontal.png), url(../img/border_horizontal.png);
+    background-image: url(img/border_horizontal.png),
+                      url(img/border_horizontal.png);
     background-repeat: repeat-x;
     background-position: 0 top, 0 bottom;
 }

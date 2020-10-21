@@ -55,3 +55,29 @@ function carolinaspa_theme_scripts() {
     wp_enqueue_script('scripts', get_template_directory_uri() . '/js/scripts.js', array(''), '1.0', true);
 }
 add_action( 'wp_enqueue_scripts', 'carolinaspa_theme_scripts' );
+
+/* 
+ *     Set bootstrap class nav-item to <li> of the primary menu,
+ *     you can find the name of the menu in register_nav_menus() located 
+ *     in add_action('after_setup_theme',$theme_name_function)
+ */
+function carolinaspa_li_class($classes, $item, $args){
+    if($args->theme_location == 'primary'){
+        $classes[] = 'nav-item';
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class','carolinaspa_li_class', 1, 3);
+
+/* 
+ *     Set bootstrap class nav-item to <li> of the primary menu,
+ *     you can find the name of the menu in register_nav_menus() located 
+ *     in add_action('after_setup_theme',$theme_name_function)
+ */
+function carolinaspa_a_class($atts, $item, $args){
+    if($args->theme_location == 'primary'){
+        $atts['class'] = 'nav-link';
+    }
+    return $atts;
+}
+add_filter('nav_menu_link_attributes','carolinaspa_a_class', 10, 3);
