@@ -57,9 +57,10 @@ function carolinaspa_theme_scripts() {
 add_action( 'wp_enqueue_scripts', 'carolinaspa_theme_scripts' );
 
 /* 
- *     Set bootstrap class nav-item to <li> of the primary menu,
- *     you can find the name of the menu in register_nav_menus() located 
- *     in add_action('after_setup_theme',$theme_name_function)
+ * Set bootstrap class nav-item to <li> of the primary menu,
+ * you can find the name of the menu in register_nav_menus() located 
+ * in add_action('after_setup_theme',$theme_name_function)
+ * more info in https://developer.wordpress.org/reference/hooks/nav_menu_css_class/
  */
 function carolinaspa_li_class($classes, $item, $args){
     if($args->theme_location == 'primary'){
@@ -70,9 +71,10 @@ function carolinaspa_li_class($classes, $item, $args){
 add_filter('nav_menu_css_class','carolinaspa_li_class', 1, 3);
 
 /* 
- *     Set bootstrap class nav-item to <li> of the primary menu,
- *     you can find the name of the menu in register_nav_menus() located 
- *     in add_action('after_setup_theme',$theme_name_function)
+ * Set bootstrap class nav-link to <a> of the primary menu,
+ * you can find the name of the menu in register_nav_menus() located 
+ * in add_action('after_setup_theme',$theme_name_function)
+ * more info in https://developer.wordpress.org/reference/hooks/nav_menu_link_attributes/
  */
 function carolinaspa_a_class($atts, $item, $args){
     if($args->theme_location == 'primary'){

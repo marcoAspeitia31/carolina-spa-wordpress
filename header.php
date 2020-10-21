@@ -18,6 +18,7 @@
             </a>
         </div>
         <div class="col-lg-4 text-center text-lg-right">
+            <!-- social-icons menu -->
             <?php
                 $args = array(
                     'container'         => 'nav',
@@ -28,7 +29,7 @@
                 );
                 wp_nav_menu($args);
             ?>
-            <!-- social-icons end -->
+            <!-- social-icons menu end -->
         </div><!-- col-lg-4 social icons -->
     </div><!-- top bar end -->
     <div class="navigation mt-3 py-2">

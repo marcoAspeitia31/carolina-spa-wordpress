@@ -17,34 +17,18 @@
                 <h3 class="text-uppercase pb-4">Contacto</h3>
                 <p>66 East Sunnyslope Avenue</p>
                 <p>Lansdowne, PA 19050</p>
-                <nav class="social-icons">
-                    <ul class="">
-                        <li>
-                            <a href="https://facebook.com">
-                                <span class="sr-only">Facebook </span>
-                            </a>
-                        </li>
-                        <li><a href="https://instagram.com">
-                                <span class="sr-only">Instagram </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com">
-                                <span class="sr-only">Twitter </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://pinterest.com">
-                                <span class="sr-only">Pinterest </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://youtube.com">
-                                <span class="sr-only">YouTube </span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav><!-- social-icons end -->
+                <!-- social-icons menu -->
+                <?php
+                    $args = array(
+                        'container'         => 'nav',
+                        'container_class'   => 'social-icons',
+                        'link_before'       => '<span class="sr-only">',
+                        'link_after'        => '</span>',
+                        'theme_location'    => 'social_media',
+                    );
+                    wp_nav_menu($args);
+                ?>
+                <!-- social-icons menu end -->
             </div><!-- col-md-4 end -->
             <hr class="w-100">
             <p class="text-center copyright w-100">Carolina Spa & Salon 2020. Derechos Reservados</p>
