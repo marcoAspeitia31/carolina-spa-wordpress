@@ -1,41 +1,29 @@
-<?php get_header(); ?>
+<?php
+
+get_header(); 
+
+if ( have_posts() ) : 
+    while ( have_posts() ) : the_post(); 
+?>
 <!-- Hero -->
 <div class="container pt-4">
     <div class="row no-gutters">
         <div class="col-12 hero">
-            <img src="img/nosotros.jpg" alt="" class="img-fluid">
+            <?php the_post_thumbnail('full', array('class' => 'img-fluid'))?>
             <h2 class="d-none d-md-block text-uppercase py-3 px-5 text-light">
-                Nosotros
+                <?php the_title(); ?>
             </h2>
         </div>
     </div>
 </div><!-- Hero end -->
 
-<!-- General Info -->
 <div class="container pt-4">
     <div class="row">
         <main class="col-lg-8 main-content">
             <h2 class="d-block d-md-none text-uppercase text-center">
-                Nosotros
+                <?php the_title(); ?>
             </h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat eos natus dicta tempore
-                magni. Nisi dolorem eligendi qui, deserunt quas ipsum aspernatur, dignissimos commodi similique
-                minus inventore nobis soluta!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, aliquid. Deleniti sequi necessitatibus
-                maxime amet praesentium modi consequatur blanditiis quod eum, obcaecati nulla. Tempora aperiam
-                itaque fuga numquam, labore provident.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat eos natus dicta tempore
-                magni. Nisi dolorem eligendi qui, deserunt quas ipsum aspernatur, dignissimos commodi similique
-                minus inventore nobis soluta!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, aliquid. Deleniti sequi necessitatibus
-                maxime amet praesentium modi consequatur blanditiis quod eum, obcaecati nulla. Tempora aperiam
-                itaque fuga numquam, labore provident.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat eos natus dicta tempore
-                magni. Nisi dolorem eligendi qui, deserunt quas ipsum aspernatur, dignissimos commodi similique
-                minus inventore nobis soluta!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, aliquid. Deleniti sequi necessitatibus
-                maxime amet praesentium modi consequatur blanditiis quod eum, obcaecati nulla. Tempora aperiam
-                itaque fuga numquam, labore provident.</p>
+            <?php the_content(); ?>
             <h2 class="text-center text-uppercase italic-letter mb-4">
                 <span class="text-lowercase d-block">
                     Conoce nuestras
@@ -158,4 +146,8 @@
         <!-- SIDEBAR SCHEDULES END -->
     </div>
 </div>
-<?php get_footer();
+<?php 
+// Display post content
+endwhile; 
+endif;
+get_footer();
