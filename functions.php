@@ -130,3 +130,6 @@ function carolinaspa_widgets_init() {
     ) );
 }
 add_action( 'widgets_init', 'carolinaspa_widgets_init' );
+
+/* Support to custom widgets */
+require_once dirname(__FILE__) . 'inc/widgets.php';
