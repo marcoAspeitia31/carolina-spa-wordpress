@@ -17,6 +17,11 @@ if ( ! function_exists( 'carolinaspa_theme_setup' ) ) :
         load_theme_textdomain( 'carolinaspa_theme_setup', get_template_directory() . '/languages' );
      
         /**
+         * Add custom image sizes
+         */
+        add_image_size( 'gallery-thumbnail', 350, 250, true );
+        
+        /**
          * Enable support for post thumbnails and featured images.
          */
         add_theme_support( 'post-thumbnails' );
@@ -33,7 +38,7 @@ if ( ! function_exists( 'carolinaspa_theme_setup' ) ) :
             'primary'   => __( 'Primary Menu', 'carolinaspa' ),
             'social_media' => __('Social Media Menu', 'carolinaspa' )
         ) );
-     
+
         /**
          * Enable support for the following post formats:
          * aside, gallery, quote, image, and video
