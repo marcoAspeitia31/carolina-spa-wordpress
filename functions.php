@@ -96,7 +96,7 @@ add_filter('nav_menu_link_attributes','carolinaspa_a_class', 10, 3);
 
 /** Widgets Zone
  *  
- * In this section we are going to setup the widgets support to our theme
+ * In this section we are going to setup the widgets area support to our theme
  * more info in -> https://developer.wordpress.org/reference/hooks/widgets_init/ 
  * 
  */
@@ -128,8 +128,17 @@ function carolinaspa_widgets_init() {
         'before_title'  => '<h3 class="text-uppercase text-center pb-4">',
         'after_title'   => '</h3>',
     ) );
+    register_sidebar( array(
+        'name'          => __( 'Sidebar Widget 1', 'carolinaspa' ),
+        'id'            => 'carolinaspa-sidebar-widget-1',
+        'description'   => __( 'Modificar tabla de horarios', 'carolinaspa' ),
+        'before_widget' => '<div id="%1$s">', /* This line is created to wrap widgets with a singular and dinamyc id */
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="text-center text-uppercase font-weight-bold mt-5">',
+        'after_title'   => '</h2>',
+    ) );
 }
 add_action( 'widgets_init', 'carolinaspa_widgets_init' );
 
 /* Support to custom widgets */
-require_once dirname(__FILE__) . 'inc/widgets.php';
+require_once dirname(__FILE__) . '/inc/widgets.php';

@@ -3,16 +3,16 @@
 /**
  * Adds Foo_Widget widget.
  */
-class Foo_Widget extends WP_Widget {
+class Schedule_Widget extends WP_Widget {
  
     /**
      * Register widget with WordPress.
      */
     public function __construct() {
         parent::__construct(
-            'foo_widget', // Base ID
-            'Foo_Widget', // Name
-            array( 'description' => __( 'A Foo Widget', 'text_domain' ), ) // Args
+            'schedule_widget', // Base ID
+            'Tabla Horario SPA', // Name
+            array( 'description' => __( 'Agrega el horario de trabajo', 'text_domain' ), ) // Args
         );
     }
  
@@ -32,7 +32,34 @@ class Foo_Widget extends WP_Widget {
         if ( ! empty( $title ) ) {
             echo $before_title . $title . $after_title;
         }
-        echo __( 'Hello, World!', 'text_domain' );
+        /* The next lines render the ACF dynamic content in our side bar */
+        ?>
+<p class="text-center lead mt-3"><?php the_field('horarios_texto'); ?></p>
+<?php $horario = get_field('horario'); 
+    if($horario):
+?>
+<table class="table table-hover text-center mt-3 mb-5 text-light">
+    <thead>
+        <tr>
+            <?php foreach($horario['header'] as $th): ?>
+
+            <th class="text-center"><?php echo $th['c']; ?></th>
+            <?php endforeach; ?>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($horario['body'] as $tr): ?>
+        <tr>
+            <?php foreach($tr as $td): ?>
+            <td><?php echo $td['c']; ?></td>
+            <?php endforeach; ?>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?php
+        endif;
         echo $after_widget;
     }
  
@@ -76,12 +103,12 @@ class Foo_Widget extends WP_Widget {
         return $instance;
     }
  
-} // class Foo_Widget
+} // class Schedule_Widget
  
-// Register Foo_Widget widget
-add_action( 'widgets_init', 'register_foo' );
+// Register Schedule_Widget widget
+add_action( 'widgets_init', 'carolinaspa_schedule_widget' );
      
-function register_foo() { 
-    register_widget( 'Foo_Widget' ); 
+function carolinaspa_schedule_widget() { 
+    register_widget( 'Schedule_Widget' ); 
 }
 ?>

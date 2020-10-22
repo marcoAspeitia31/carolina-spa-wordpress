@@ -20,10 +20,12 @@
     <?php foreach($imagesIds as $singleImageId): ?>
     <div class="col-md-6 col-lg-4 mb-3">
         <a href="#" data-target="#image-<?php echo $singleImageId?>" data-toggle="modal">
-            <!-- wp_get_attachment_image() get an HTML img element representing an image attachment
-                         For more information please visit -> https://developer.wordpress.org/reference/functions/wp_get_attachment_image/
-                        -->
-            <?php echo wp_get_attachment_image($singleImageId, 'gallery-thumbnail', false, ['class' => 'img-fluid', 'srcset' => ' ']); ?>
+            <?php 
+            /**
+             * wp_get_attachment_image() get an HTML img element representing an image attachment
+             * for more information please visit -> https://developer.wordpress.org/reference/functions/wp_get_attachment_image/
+             **/
+            echo wp_get_attachment_image($singleImageId, 'gallery-thumbnail', false, ['class' => 'img-fluid', 'srcset' => ' ']); ?>
         </a>
     </div>
     <div class="modal fade" id="image-<?php echo $singleImageId?>" tabindex="-1" role="dialog"
