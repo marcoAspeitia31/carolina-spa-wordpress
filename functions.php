@@ -129,12 +129,21 @@ function carolinaspa_widgets_init() {
         'after_title'   => '</h3>',
     ) );
     register_sidebar( array(
-        'name'          => __( 'Sidebar Widget 1', 'carolinaspa' ),
+        'name'          => __( 'Sidebar Nosotros', 'carolinaspa' ),
         'id'            => 'carolinaspa-sidebar-widget-1',
         'description'   => __( 'Modificar tabla de horarios', 'carolinaspa' ),
         'before_widget' => '<div id="%1$s">', /* This line is created to wrap widgets with a singular and dinamyc id */
         'after_widget'  => '</div>',
         'before_title'  => '<h2 class="text-center text-uppercase font-weight-bold mt-5">',
+        'after_title'   => '</h2>',
+    ) );
+    register_sidebar( array(
+        'name'          => __( 'Sidebar Servicios', 'carolinaspa' ),
+        'id'            => 'carolinaspa-sidebar-widget-2',
+        'description'   => __( 'Modificar el cupón de descuento', 'carolinaspa' ),
+        'before_widget' => '<div id="%1$s">', /* This line is created to wrap widgets with a singular and dinamyc id */
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="text-center text-uppercase font-weight-bold mt-4">',
         'after_title'   => '</h2>',
     ) );
 }
