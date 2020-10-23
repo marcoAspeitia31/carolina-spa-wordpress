@@ -151,3 +151,6 @@ add_action( 'widgets_init', 'carolinaspa_widgets_init' );
 
 /* Support to custom widgets */
 require_once dirname(__FILE__) . '/inc/widgets.php';
+
+/* Adding Custom Post Types */
+require_once dirname(__FILE__) . '/inc/custom-post-types.php';
