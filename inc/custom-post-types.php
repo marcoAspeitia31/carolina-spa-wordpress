@@ -46,7 +46,7 @@ if ( ! function_exists('custom_products_post_type') ) {
 			'description'           => __( 'Carolina Spa Products', 'carolina-spa' ),
 			'labels'                => $labels,
 			'supports'              => array( 'title', 'editor', 'thumbnail' ),
-			'taxonomies'            => array( 'category', 'post_tag' ),
+			//'taxonomies'            => array( 'category', 'post_tag' ),
 			'hierarchical'          => false,
 			'public'                => true,
 			'show_ui'               => true,
