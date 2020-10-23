@@ -1,5 +1,7 @@
 <?php
  
+ if(!defined('ABSPATH')) die();
+ 
 /**
  * Adds Foo_Widget widget.
  */

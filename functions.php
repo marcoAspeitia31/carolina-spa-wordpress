@@ -20,6 +20,8 @@ if ( ! function_exists( 'carolinaspa_theme_setup' ) ) :
          * Add custom image sizes
          */
         add_image_size( 'gallery-thumbnail', 350, 250, true );
+        add_image_size( 'product-thumbnail', 400, 270, true );
+        add_image_size( 'hero', 1110, 460, true );
         
         /**
          * Enable support for post thumbnails and featured images.
@@ -154,3 +156,6 @@ require_once dirname(__FILE__) . '/inc/widgets.php';
 
 /* Adding Custom Post Types */
 require_once dirname(__FILE__) . '/inc/custom-post-types.php';
+
+/* Adding Custom Shortcodes */
+require_once dirname(__FILE__) . '/inc/custom-shortcodes.php';
