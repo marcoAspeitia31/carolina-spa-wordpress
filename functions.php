@@ -132,7 +132,7 @@ function carolinaspa_widgets_init() {
         'after_title'   => '</h3>',
     ) );
     register_sidebar( array(
-        'name'          => __( 'Sidebar Nosotros', 'carolinaspa' ),
+        'name'          => __( 'Horarios Carolina Spa', 'carolinaspa' ),
         'id'            => 'carolinaspa-sidebar-widget-1',
         'description'   => __( 'Modificar tabla de horarios', 'carolinaspa' ),
         'before_widget' => '<div id="%1$s">', /* This line is created to wrap widgets with a singular and dinamyc id */

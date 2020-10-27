@@ -29,15 +29,16 @@ class Schedule_Widget extends WP_Widget {
     public function widget( $args, $instance ) {
         extract( $args );
         $title = apply_filters( 'widget_title', $instance['title'] );
- 
+        $scheduleText = $instance['scheduleText'];
         echo $before_widget;
         if ( ! empty( $title ) ) {
             echo $before_title . $title . $after_title;
         }
         /* The next lines render the ACF dynamic content in our side bar */
         ?>
-<p class="text-center lead mt-3"><?php the_field('horarios_texto'); ?></p>
-<?php $horario = get_field('horario'); 
+<p class="text-center lead mt-3"><?php echo $scheduleText; ?></p>
+<?php
+    $horario = get_field('horario'); 
     if($horario):
 ?>
 <table class="table table-hover text-center mt-3 mb-5 text-light">
@@ -79,11 +80,24 @@ class Schedule_Widget extends WP_Widget {
         else {
             $title = __( 'New title', 'text_domain' );
         }
+        if ( isset( $instance[ 'scheduleText' ] ) ) {
+            $scheduleText = $instance[ 'scheduleText' ];
+        }
+        else {
+            $scheduleText = __( 'Descuento', 'text_domain' );
+        }
         ?>
 <p>
     <label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
         name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+</p>
+<p>
+    <label
+        for="<?php echo $this->get_field_name( 'scheduleText' ); ?>"><?php _e( 'Texto informativo adicional a los horarios:' ); ?></label>
+    <input class="widefat" id="<?php echo $this->get_field_id( 'scheduleText' ); ?>"
+        name="<?php echo $this->get_field_name( 'scheduleText' ); ?>" type="text"
+        value="<?php echo esc_attr( $scheduleText ); ?>" />
 </p>
 <?php
     }
@@ -101,7 +115,7 @@ class Schedule_Widget extends WP_Widget {
     public function update( $new_instance, $old_instance ) {
         $instance = array();
         $instance['title'] = ( !empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
- 
+        $instance['scheduleText'] = ( !empty( $new_instance['scheduleText'] ) ) ? strip_tags( $new_instance['scheduleText'] ) : '';
         return $instance;
     }
  

@@ -115,5 +115,30 @@ endif;
     </div><!-- row end -->
 </div>
 <!-- Services end -->
+
+<!-- Schedules -->
+<div class="schedules my-5 text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <?php
+                    $query = new WP_Query( array( 'pagename' => 'nosotros' ) );
+                    if($query -> have_posts()):
+                        while($query -> have_posts()): $query -> the_post();
+                            dynamic_sidebar( 'carolinaspa-sidebar-widget-1' );
+                        endwhile;
+                    endif;
+                    wp_reset_postdata();
+                ?>
+            </div>
+            <div class="col-md-6 schedules-image pb-5 p-md-0">
+                <?php 
+                    echo wp_get_attachment_image(get_field('imagen_horario'), 'full', false, ["class" => "img-fluid"]);
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Schedules end -->
 <?php
 get_footer();
