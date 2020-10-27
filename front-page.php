@@ -7,6 +7,7 @@
     );
     $slider = new WP_Query($args);
     if ( $slider -> have_posts() ) :
+        $test = $slider -> have_posts();
 ?>
 
 <!-- Banner -->
@@ -22,9 +23,15 @@
         <div class="carousel-inner" role="listbox">
             <?php while($slider->have_posts()): $slider->the_post(); ?>
             <div class="carousel-item <?php echo $counter == 0 ? 'active' : '' ?>">
-                <?php the_post_thumbnail('hero', array(
-                    'class' => 'img-fluid d-block',
-                )); ?>
+                <?php
+                    if(has_post_thumbnail()){
+                        the_post_thumbnail('hero', array(
+                            'class' => 'img-fluid d-block',
+                        ));
+                    }else{
+                        ?><img src="<?php echo get_template_directory_uri();?>/img/slide_01.jpg" alt="Carolina Spa"><?php
+                    }
+                ?>
                 <div class="carousel-caption">
                     <h3 class="text-uppercase"><?php the_content(); ?></h3>
                 </div>
