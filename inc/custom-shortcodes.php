@@ -4,14 +4,19 @@ if(!defined('ABSPATH')) die();
 
 /**
  * Shortcode to render all custom type products
- * Way to use -> [carolinaspa_products]
+ * Way to use -> [carolinaspa_products number=int]
 **/
 
-function carolinaspa_products_shortcode(){
+function carolinaspa_products_shortcode($products){
+    if (empty($products['number'])){
+        $numberOfProducts = 10;
+    }else{
+        $numberOfProducts = $products['number'];
+    }
     $args = array(
-        'post_per_page' => 10,
+        'posts_per_page' => $numberOfProducts,
         'post_type'     => 'products_post_type',
-        'orderby'       => 'name',
+        'orderby'       => 'date',
         'order'         => 'ASC',
     );
     $products = new WP_Query($args);
