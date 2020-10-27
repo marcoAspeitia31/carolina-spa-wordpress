@@ -194,7 +194,7 @@ nav .active{
 
 /* Booking */
 .booking{
-    background-image: url(../img/bg_citas.jpg);
+    background-image: url(img/bg_citas.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;

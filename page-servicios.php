@@ -6,7 +6,7 @@ if ( have_posts() ) :
     get_template_part('template-parts/hero');
 ?>
 
-<div class="container pt-4">
+<div class="container py-4">
     <div class="row">
         <main class="col-lg-8 main-content">
             <h2 class="d-block d-md-none text-uppercase text-center">
@@ -63,6 +63,8 @@ if ( have_posts() ) :
 </div>
 <?php 
 // Display post content
+get_template_part('template-parts/booking');
+
 endwhile; 
 endif;
 get_footer();

@@ -1,4 +1,6 @@
 <?php get_header(); 
+if(have_posts()):
+    while(have_posts()): the_post();
     $args = array(
         'post_type'         => 'slider_post_type',
         'posts_per_page'    => 3,
@@ -160,6 +162,10 @@ endif;
                 los productos</a>
         </div><!-- repeatable card group -->
     </div><!-- main row end -->
-</section><!-- Products end -->
+</section>
+<!-- Products end -->
 <?php
+get_template_part('template-parts/booking');
+endwhile;
+endif;
 get_footer();
