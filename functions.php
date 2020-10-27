@@ -22,6 +22,7 @@ if ( ! function_exists( 'carolinaspa_theme_setup' ) ) :
         add_image_size( 'gallery-thumbnail', 350, 250, true );
         add_image_size( 'product-thumbnail', 400, 270, true );
         add_image_size( 'hero', 1110, 460, true );
+        add_image_size( 'portrait', 350, 410, true );
         
         /**
          * Enable support for post thumbnails and featured images.
