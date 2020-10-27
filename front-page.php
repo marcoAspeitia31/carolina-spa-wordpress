@@ -156,6 +156,8 @@ endif;
     <div class="row py-5">
         <div class="col-md-12 mb-4 products-on-front">
             <?php echo do_shortcode('[carolinaspa_products number=4]') ?>
+            <a href="<?php echo get_permalink(get_page_by_title( 'Productos' ));?>" class="btn btn-primary px-3">Todos
+                los productos</a>
         </div><!-- repeatable card group -->
     </div><!-- main row end -->
 </section><!-- Products end -->
